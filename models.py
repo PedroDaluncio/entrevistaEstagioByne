@@ -8,3 +8,4 @@ class MessageResponse(BaseModel):
 
 class User(BaseModel):
     user: str
+    data: Optional[str]

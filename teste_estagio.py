@@ -40,6 +40,18 @@ async def get_my_last_number(user: str):
         raise HTTPException(status_code=404, detail={"message": "Last number not found for this user"})
     return JSONResponse(content={"data": last_number}, status_code=200)
 
+@app.put("/save_number", response_model=MessageResponse)
+async def save_number(user: User):
+    """Saved a number the user sent"""
+    if user.data:
+        try:
+            user_data[user.user] = int(user.data)
+        except ValueError:
+            raise HTTPException(status_code=400, detail={"message": "Data must be a number"})
+
+        return JSONResponse(content={"message": "Number saved succefully"}, status_code=200)
+    return HTTPException(status_code=400, detail={"message": "A number is required"})
+
 # def return_odd_number():
 #     """Return a odd number between 0 and a hundred thousand"""
 #     number = randint(0, 100000)

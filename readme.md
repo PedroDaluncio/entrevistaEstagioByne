@@ -9,18 +9,19 @@ O código relacionado a este repositório representa os desafios requisitados pe
 - Após isso, basta executar o o arquivo teste_estagio, pegando o host e a porta da api
 - Crie um .env com o host e porta da api
 - Execute o api_call
+- Substitua user por qualquer nome, ele será o campo usado para salvar o ultimo número gerado pelo usuário
 
 ## Especificações de funções
 
-### return_odd_number
+### post_odd_number
 
     Gera um número aleatório entre 0 e 100 mil, percorrendo um loop até esse número ser impar. A verificação é feita verificando a divisão de módulo por 2 ser diferente de 0.
 
-### return_even_number
+### post_even_number
 
     Gera um número aleatório entre 0 e 100 mil, percorrendo um loop até esse número ser par. A verificação é feita verificando a divisão de módulo por 2 ser igual a 0.
 
-### return_text
+### get_text
 
     Retorna um texto fixo.
 

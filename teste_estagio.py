@@ -1,5 +1,5 @@
 from random import randint
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import uvicorn
 from models import MessageResponse, User
@@ -31,6 +31,14 @@ async def post_even_number(user: User):
         number = randint(0, 100000)
     user_data[user.user] = number
     return JSONResponse(content={"data": number}, status_code=200)
+
+@app.get("/get_my_last_number", response_model=MessageResponse)
+async def get_my_last_number(user: str):
+    """Returns the last number saved by user identity"""
+    last_number = user_data.get(user)
+    if not last_number:
+        raise HTTPException(status_code=404, detail={"message": "Last number not found for this user"})
+    return JSONResponse(content={"data": last_number}, status_code=200)
 
 # def return_odd_number():
 #     """Return a odd number between 0 and a hundred thousand"""

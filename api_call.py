@@ -33,6 +33,12 @@ def main():
     except Exception:
         logging.exception("Error fething text data")
 
+    try:
+        response = requests.get(f"{API_HOST}:{API_PORT}/get_my_last_number?user={user['user']}", timeout=60)
+        print(response.json())
+    except Exception:
+        logging.exception("Error fething text data")
+
 
 if __name__ == "__main__":
     main()

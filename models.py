@@ -5,3 +5,6 @@ from pydantic import BaseModel
 class MessageResponse(BaseModel):
     data: str
     message: Optional[str]
+
+class User(BaseModel):
+    user: str

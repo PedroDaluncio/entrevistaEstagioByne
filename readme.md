@@ -4,7 +4,11 @@ O código relacionado a este repositório representa os desafios requisitados pe
 
 ## Como rodar
 
-Basta executar o arquivo normalmente, sem precisar instalar bibliotecas.
+- Execute os comandos:
+    ``pip install -r requirements.txt``
+- Após isso, basta executar o o arquivo teste_estagio, pegando o host e a porta da api
+- Crie um .env com o host e porta da api
+- Execute o api_call
 
 ## Especificações de funções
 
